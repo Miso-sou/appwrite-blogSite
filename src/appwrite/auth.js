@@ -19,7 +19,7 @@ export class AuthService {
 
             if (userAccount) {
                 // call another menthod
-                return userAccount;
+                return tthis.login({email, password});
             } else {
                 throw new Error('Account creation failed');
             }
@@ -31,10 +31,13 @@ export class AuthService {
     async login({email, password}){
         try {
             return await this.Account.createEmailPasswordSession(email, password);
-
         } catch (error) {
             throw error;
         }
+    }
+
+    async getCurrentUser(){
+        
     }
 }
 
